@@ -3,6 +3,8 @@
 
 #include <string>
 #include <list>
+#include <map>
+#include "tag.h"
 
 class XMLInterpreter
 {
@@ -16,7 +18,17 @@ private:
 
     bool checkTagsOrder(const std::list<std::string> &tags);
 
+    bool validate();
+
+    void buildData();
+
+    std::string buildKey(const std::list<std::string> &tags);
+
     std::string m_source;
+
+    std::map<Tag, std::string> m_data;
+
+    bool isGood;
 };
 
 #endif
